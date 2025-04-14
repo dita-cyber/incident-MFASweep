@@ -31,8 +31,6 @@ Microsoft authentication account compromise alerts are triggered when suspicious
 **•	Impossible travel activity** <br/>(Highlights logins from geographically distant locations that are impossible to reach in the given time, suggesting unauthorized access attempts.)<br/>
 <br/>
 
-An MFA Sweep is an attack technique where malicious actors attempt to access multiple services using stolen credentials to identify gaps in MFA enforcement.<br/>
-
 **Step-by-Step Investigation Process**
 
 To begin, I use Kusto Query Language (KQL) to sift through logs and identify anomalies. I focus on user data by examining patterns related to location, IP addresses, user agents, display names, and Conditional Access status within the specified time frame. This helps pinpoint unusual activities that might suggest a compromised account. 
@@ -61,5 +59,23 @@ If information analyzed until this point is not enough, I follow by queries all 
 
 search "user_email"<br/>
 | summarize count() by $table<br/>
+
+**MFA Sweep Attacks**<br/>
+
+An MFA Sweep is an attack technique where malicious actors attempt to access multiple services using stolen credentials to identify gaps in MFA enforcement.<br/>
+
+MFA Sweep attacks exist because attackers are constantly looking for ways to bypass security measures and gain unauthorized access to accounts. MFA is robust, but inconsistencies in its implementation across different services can be exploited.<br/>
+
+**How MFA Sweep Attacks Work**<br/>
+MFA Sweep attacks typically involve using tools like MFASweep, which attempt to log in to various Microsoft services using correct user credentials. The tool checks if MFA is enabled by trying to authenticate across multiple services, such as Microsoft Graph API, Azure Service Management API, Microsoft 365 Exchange Web Services, and more[1]. If any authentication methods succeed without requiring MFA, the attacker identifies a potential vulnerability.<br/>
+
+That is why it is important to analyze the authentication logs to ensure events are expected. Even in situations where suspicious authentication events were blocked due to conditional access, attackers can use correct credential to bypass MFA. 
+
+**Common MFA Bypass Techniques**<br/>
+**Phishing Attacks:** Attackers trick users into entering their MFA codes or login credentials on fake websites[4].
+**Man-in-the-Middle (MitM) Attacks:** Attackers intercept and forward MFA-protected logins, capturing credentials and session cookies in real-time[5].
+**Token Theft:** Attackers steal authentication tokens, allowing them to bypass MFA and gain access to accounts[3].
+**SIM Swapping:** Attackers use social engineering to transfer a user's mobile phone number to a new SIM card owned by the attacker[5].
+**MFA Fatigue:** Attackers flood users with MFA push notifications, hoping the user will eventually approve one to stop the notifications[5].
 
 
