@@ -7,17 +7,29 @@ Investigating Microsoft Authentication Account Compromise Alerts
 Microsoft authentication account compromise alerts are triggered when suspicious activity, such as unusual login attempts or changes in authentication settings, is detected. Example of alert descriptions:
 
 **•	Alert for "user email address"** <br/>(A general alert indicating unusual activity associated with the specified email address, requiring further investigation.)<br/>
+<br/>
 **•	Account compromised following a password-spray attack for "user email address"**<br/> (Triggered by multiple login attempts using common passwords, suggesting an attempt to exploit weak passwords across accounts.)<br/>
+<br/>
 **•	Anonymous IP address for "user email address"**<br/> (Indicates login attempts from a masked or anonymized IP address, potentially signaling malicious intent to hide the access origin.)<br/>
+<br/>
 **•	Successful Authentication from an Unusual Geolocation from IP address**<br/> (Triggered by a successful login from a location atypical for the user, raising concerns about unauthorized access.)<br/>
+<br/>
 **•	Unfamiliar sign-in properties for "user email address"** <br/>(Highlights discrepancies in the user’s typical login behavior, such as changes in device or network, indicating possible compromise.)<br/>
+<br/>
 **•	Login from an unusual location**<br/> (Signals a login attempt from a location not commonly associated with the user, suggesting potential compromise or travel.)<br/>
+<br/>
 **•	Password Spray involving one user**<br/> (Indicates a targeted password spray attack on a specific user account, with multiple password attempts to gain access.)<br/>
+<br/>
 **•	Malicious IP address involving one user** <br/>(Detects activities from an IP address known for malicious behavior, suggesting the user account might be under attack.)<br/>
+<br/>
 **•	Potentially Compromised Credentials for "user email address"**<br/> (Suggests that the credentials for the specified email may have been exposed or used without authorization.)<br/>
+<br/>
 **•	Anomalous Token** <br/>(Triggered by the detection of an unusual or unexpected authentication token, which may indicate token theft or misuse.)<br/>
+<br/>
 **•	Atypical travel involving one user** <br/>(Raised when login activity suggests implausible travel within the time frame, indicating credential misuse.)<br/>
+<br/>
 **•	Impossible travel activity** <br/>(Highlights logins from geographically distant locations that are impossible to reach in the given time, suggesting unauthorized access attempts.)<br/>
+<br/>
 
 An MFA Sweep is an attack technique where malicious actors attempt to access multiple services using stolen credentials to identify gaps in MFA enforcement.
 Step-by-Step Investigation Process
