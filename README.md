@@ -74,10 +74,10 @@ That is why it is important to analyze the authentication logs to ensure events 
 
 **Common MFA Bypass Techniques**<br/>
 <br/>
-**Phishing Attacks:** Attackers trick users into entering their MFA codes or login credentials on fake websites[4].
-**Man-in-the-Middle (MitM) Attacks:** Attackers intercept and forward MFA-protected logins, capturing credentials and session cookies in real-time[5].
-**Token Theft:** Attackers steal authentication tokens, allowing them to bypass MFA and gain access to accounts[3].
-**SIM Swapping:** Attackers use social engineering to transfer a user's mobile phone number to a new SIM card owned by the attacker[5].
-**MFA Fatigue:** Attackers flood users with MFA push notifications, hoping the user will eventually approve one to stop the notifications[5].
+**•	Phishing Attacks:** Attackers trick users into entering their MFA codes or login credentials on fake websites.<br/>
+**•	Man-in-the-Middle (MitM) Attacks:** Attackers intercept and forward MFA-protected logins, capturing credentials and session cookies in real-time.<br/>
+**•	Token Theft:** Attackers steal authentication tokens, allowing them to bypass MFA and gain access to accounts.<br/>
+**•	SIM Swapping:** Attackers use social engineering to transfer a user's mobile phone number to a new SIM card owned by the attacker.<br/>
+**•	MFA Fatigue:** Attackers flood users with MFA push notifications, hoping the user will eventually approve one to stop the notifications.<br/>
 
 
