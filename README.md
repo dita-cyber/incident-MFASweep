@@ -31,8 +31,9 @@ Microsoft authentication account compromise alerts are triggered when suspicious
 **•	Impossible travel activity** <br/>(Highlights logins from geographically distant locations that are impossible to reach in the given time, suggesting unauthorized access attempts.)<br/>
 <br/>
 
-An MFA Sweep is an attack technique where malicious actors attempt to access multiple services using stolen credentials to identify gaps in MFA enforcement.
-Step-by-Step Investigation Process
+An MFA Sweep is an attack technique where malicious actors attempt to access multiple services using stolen credentials to identify gaps in MFA enforcement.<br/>
+
+**Step-by-Step Investigation Process**
 
 To begin, I use Kusto Query Language (KQL) to sift through logs and identify anomalies. I focus on user data by examining patterns related to location, IP addresses, user agents, display names, and Conditional Access status within the specified time frame. This helps pinpoint unusual activities that might suggest a compromised account. 
 
