@@ -1,4 +1,4 @@
-# incident-Microsoft Authentication and MFASweep
+# incident - Microsoft Authentication and MFASweep
 
 Investigating Microsoft Authentication Account Compromise Alerts
 
