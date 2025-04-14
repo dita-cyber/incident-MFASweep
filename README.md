@@ -67,11 +67,13 @@ An MFA Sweep is an attack technique where malicious actors attempt to access mul
 MFA Sweep attacks exist because attackers are constantly looking for ways to bypass security measures and gain unauthorized access to accounts. MFA is robust, but inconsistencies in its implementation across different services can be exploited.<br/>
 
 **How MFA Sweep Attacks Work**<br/>
+<br/>
 MFA Sweep attacks typically involve using tools like MFASweep, which attempt to log in to various Microsoft services using correct user credentials. The tool checks if MFA is enabled by trying to authenticate across multiple services, such as Microsoft Graph API, Azure Service Management API, Microsoft 365 Exchange Web Services, and more[1]. If any authentication methods succeed without requiring MFA, the attacker identifies a potential vulnerability.<br/>
 
 That is why it is important to analyze the authentication logs to ensure events are expected. Even in situations where suspicious authentication events were blocked due to conditional access, attackers can use correct credential to bypass MFA. 
 
 **Common MFA Bypass Techniques**<br/>
+<br/>
 **Phishing Attacks:** Attackers trick users into entering their MFA codes or login credentials on fake websites[4].
 **Man-in-the-Middle (MitM) Attacks:** Attackers intercept and forward MFA-protected logins, capturing credentials and session cookies in real-time[5].
 **Token Theft:** Attackers steal authentication tokens, allowing them to bypass MFA and gain access to accounts[3].
