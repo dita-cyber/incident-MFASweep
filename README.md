@@ -35,11 +35,13 @@ Microsoft authentication account compromise alerts are triggered when suspicious
 
 To begin, I use Kusto Query Language (KQL) to sift through logs and identify anomalies. I focus on user data by examining patterns related to location, IP addresses, user agents, display names, and Conditional Access status within the specified time frame. This helps pinpoint unusual activities that might suggest a compromised account. 
 
+```
 SigninLogs<br/>
 | where TimeGenerated > ago(30d)<br/>
 | where * contains "email_account"<br/>
 | project TimeGenerated, UserPrincipalName, UserDisplayName, Location, LocationDetails, IPAddress, Status, ConditionalAccessStatus, AuthenticationRequirement, AuthenticationDetails, ResultType, ResultDescription, UserAgent, MfaDetail, AppDisplayName, DeviceDetail<br/>
 | sort by TimeGenerated<br/>
+```
 
 Using the KQL query, I analyze user login data to identify deviations from normal behavior, such as logins from unfamiliar locations or devices, over the past 30 days, extending to 90 days if necessary due to data retention limits in Sentinel logs, which provides a comprehensive view of the user's login patterns. Key aspects to examine include consistency in location patterns, multi-factor authentication usage, the nature of authentication events (successful or failed), account status (blocked due to Conditional Access policies, invalid passwords, session revocation by admins, or high-risk indicators), user agent consistency and any suspicious changes, and device details like registration status, potential new device registration, or authentication from unknown devices or locations. These analyses are compiled into a report to assess whether the behavior is malicious, suspicious, or expected based on new user patterns.
 
@@ -51,14 +53,18 @@ Next, I check the IP addresses associated with the suspicious logins against Ope
 
 To gain a comprehensive understanding of the situation, I examine other data sources like the AuditLogs table and recent security alerts. This helps identify additional indicators of compromise (IOCs), such as unauthorized changes in user settings or other triggered alerts that might be related to the same compromise incident.
 
+```
 AuditLogs<br/>
 | where Category == "UserManagement" and OperationName == "Update User"<br/>
 | project TimeGenerated, TargetResources, ModifiedProperties<br/>
+```
 
 If information analyzed until this point is not enough, I follow by queries all tables that have the user account and gain a better understanding of data logs available for that account using the general KQL:
 
+```
 search "user_email"<br/>
 | summarize count() by $table<br/>
+```
 
 **MFA Sweep Attacks**<br/>
 
